@@ -1,0 +1,37 @@
+---
+apiVersion: v2
+appVersion: r1295
+version: 2.0.0
+name: projectsend
+description: A self-hosted application that lets you upload files and assign them to specific clients that you create yourself
+type: application
+home: "https://github.com/nicholaswilde/helm-charts/tree/main/charts/projectsend"
+icon: "https://github.com/nicholaswilde/helm-charts/raw/main/images/projectsend.jpg"
+dependencies:
+  - name: common
+    version: ~0.1.13
+    repository: https://nicholaswilde.github.io/helm-charts/
+  - name: mariadb
+    version: ~1.0.5
+    repository: https://nicholaswilde.github.io/helm-charts/
+    condition: mariadb.enabled
+keywords:
+  - project
+  - send
+  - upload
+  - files
+sources:
+  - https://www.projectsend.org/
+  - https://hub.docker.com/r/linuxserver/projectsend
+maintainers:
+  - name: nicholaswilde
+    email: ncwilde43@gmail.com
+annotations:
+  artifacthub.io/changes: |
+    - kind: changed
+      description: Bump tag to version-r1295.
+    - kind: changed
+      description: Bump mariadb to 1.0.5.
+  artifacthub.io/images: |
+    - name: projectsend
+      image: ghcr.io/linuxserver/projectsend:version-r1295

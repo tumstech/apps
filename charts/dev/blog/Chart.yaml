@@ -1,0 +1,38 @@
+---
+apiVersion: v2
+appVersion: "v1.3"
+version: 1.0.0
+name: blog
+description: Lightweight self-hosted facebook-styled PHP blog.
+type: application
+home: "https://github.com/nicholaswilde/helm-charts/tree/main/charts/blog"
+icon: ""
+dependencies:
+  - name: common
+    version: ~0.1.13
+    repository: https://nicholaswilde.github.io/helm-charts/
+keywords:
+  - blog
+  - php
+  - self
+  - hosted
+  - facebook
+sources:
+  - https://github.com/m1k1o/blog
+  - https://github.com/nicholaswilde/docker-blog
+maintainers:
+  - name: nicholaswilde
+    email: ncwilde43@gmail.com
+annotations:
+  artifacthub.io/changes: |
+    - kind: added
+      description: values.schema.json
+    - kind: changed
+      description: Bump common to 0.1.13
+    - kind: changed
+      description: Simplify values.yaml
+    - kind: changed
+      description: Change tag to version-v1.3 in order to reduce the number of chart updates.
+  artifacthub.io/images: |
+    - name: blog
+      image: ghcr.io/nicholaswilde/blog:version-v1.3

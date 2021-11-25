@@ -1,0 +1,46 @@
+---
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/nicholaswilde/helm-charts/tree/main/charts/common/values.yaml
+#
+
+image:
+  repository: ghcr.io/linuxserver/clarkson
+  pullPolicy: IfNotPresent
+  tag: "version-v1.1.2"
+
+strategy:
+  type: Recreate
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+
+secret: {}
+  #MYSQL_PASSWORD: clarkson-pass
+
+# See more environment variables in the clarkson documentation
+# https://github.com/linuxserver/docker-clarkson#parameters
+env: {}
+  # MYSQL_USERNAME: clarkson
+  # MYSQL_HOST: clarkson-mariadb
+  # ENABLE_REGISTRATIONS: "true"
+
+ingress:
+  enabled: false
+
+# Enable mariadb
+# https://github.com/nicholaswilde/helm-charts/blob/main/charts/mariadb/values.yaml
+mariadb:
+  enabled: false
+  secret:
+    MYSQL_ROOT_PASSWORD: clarkson-pass
+    MYSQL_PASSWORD: clarkson-pass
+  env:
+    MYSQL_USER: clarkson
+    MYSQL_DATABASE: clarkson-mariadb
+  fullnameOverride: clarkson-mariadb

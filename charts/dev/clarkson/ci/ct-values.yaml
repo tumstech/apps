@@ -1,0 +1,18 @@
+---
+secret:
+  MYSQL_PASSWORD: clarkson-pass
+
+env:
+  ENABLE_REGISTRATIONS: "true"
+  MYSQL_HOST: clarkson-mariadb
+  MYSQL_USERNAME: clarkson
+
+mariadb:
+  enabled: true
+  secret:
+    MYSQL_ROOT_PASSWORD: clarkson-pass
+    MYSQL_PASSWORD: clarkson-pass
+  env:
+    MYSQL_USER: clarkson
+    MYSQL_DATABASE: clarkson
+  fullnameOverride: clarkson-mariadb

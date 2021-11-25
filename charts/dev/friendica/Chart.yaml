@@ -1,0 +1,32 @@
+---
+apiVersion: v2
+appVersion: "2021.04"
+version: 1.0.0
+name: friendica
+description: Welcome to the free social web.
+type: application
+home: "https://github.com/nicholaswilde/helm-charts/tree/main/charts/friendica"
+icon: "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-friendica-logo.png"
+dependencies:
+  - name: common
+    version: ~0.1.9
+    repository: https://nicholaswilde.github.io/helm-charts/
+  - name: mariadb
+    version: ~1.0.3
+    repository: https://nicholaswilde.github.io/helm-charts/
+    condition: mariadb.enabled
+keywords:
+  - friend
+  - social
+sources:
+  - https://friendi.ca/
+  - https://hub.docker.com/_/friendica
+maintainers:
+  - name: nicholaswilde
+    email: ncwilde43@gmail.com
+annotations:
+  artifacthub.io/changes: |
+    - Add support for mariadb
+  artifacthub.io/images: |
+    - name: friendica
+      image: friendica:2021.04

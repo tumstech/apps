@@ -1,0 +1,38 @@
+image:
+  repository: ghcr.io/linuxserver/projectsend
+  pullPolicy: IfNotPresent
+  tag: "version-r1295"
+
+# See more environment variables in the projectsend documentation
+# https://www.projectsend.org/how-to-install-projectsend/
+env: {}
+  # TZ:
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  data:
+    enabled: false
+    mountPath: /data
+    accessMode: ReadWriteOnce
+    size: 1Gi
+
+# Enable mariadb
+# https://github.com/nicholaswilde/helm-charts/blob/main/charts/mariadb/values.yaml
+mariadb:
+  enabled: false
+  secret:
+    MYSQL_ROOT_PASSWORD: "projectsend-pass"
+    MYSQL_PASSWORD: "projectsend-pass"
+  env:
+    MYSQL_USER: "projectsend"
+    MYSQL_DATABASE: "projectsend-mariadb"
+  fullnameOverride: projectsend-mariadb

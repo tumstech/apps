@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: 3.1.1-apache
+description: A Personal Relationship Management tool to help you organize your social life
+name: monica
+version: 6.1.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+- crm
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/monica
+icon: https://pbs.twimg.com/profile_images/951820722191720450/mtCNuIXX.jpg
+sources:
+- https://github.com/monicahq/monica
+- https://hub.docker.com/_/monica
+maintainers:
+- name: billimek
+  email: jeff@billimek.com
+dependencies:
+- name: common
+  repository: https://library-charts.k8s-at-home.com
+  version: 4.0.1
+- name: mariadb
+  version: 9.4.4
+  repository: https://charts.bitnami.com/bitnami
+  condition: mariadb.enabled
